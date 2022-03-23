@@ -21,6 +21,9 @@ The data collection is based on the meta-studies (and references therein):
 > Ground Water, 57 (4), 632-639, 2019
 > https://doi.org/10.1111/gwat.12838
 
+> Evidence based Estimation of Macrodispersivity for Groundwater Transport Applications
+> Alraune Zech, Sabine Attinger, Alberto Bellin, Vladimir Cvetkovic, Gedeon Dagan, Peter Dietrich, Aldo Fiori, and Georg Teutsch; 
+> Ground Water, submitted, 2022
 
 ## Structure
 
@@ -30,7 +33,10 @@ The project is organized as follows:
 - `results/` - folder with plots
 - `data/` - folder containing table with field data
 - `src/` - folder containing the Python scripts of the project:
-  + `01_plot_dispersivity.py` - visualize macrodispersivity data
+  + `00_Table_HeterogeneityClasses.py` - load macrodispersivity data from table and identify averages for heterogeneity classes (Tab 1, Zech et al., 2022)
+  + `01_plot_AL.py` - visualize longitudinal macrodispersivity data (Fig 4, Zech et al., 2015)
+  + `02_plot_AT_AV.py` - visualize transverse dispersivity data (Fig 1b, Zech et al., 2019)
+  + `03_plot_AL_CDFs.py` - visualize cumulative density functions of dispersivity for heterogeneity classes (Fig 1, Zech et al., 2022) 
 
 ## Python environment
 
@@ -49,4 +55,4 @@ You can contact us via <a.zech@uu.nl>.
 
 ## License
 
-MIT © 2021
+MIT © 2022
