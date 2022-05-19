@@ -36,6 +36,7 @@ plt.xscale('log')
 plt.yscale('log')
 # plt.xlim([1,1e4])
 # plt.ylim([3e-4,3e1])
+plt.tight_layout()
 
 # plt.savefig("../results/Longitudinal_Dispersivities.png", dpi=300)
 plt.savefig("../results/Longitudinal_Dispersivities.pdf")

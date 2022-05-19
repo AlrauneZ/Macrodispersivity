@@ -49,6 +49,7 @@ plt.xlabel(r'Longitudinal dispersivity $\alpha_L$ [m]',fontsize=textsize)
 plt.ylabel('CFD',fontsize=textsize)    
 plt.tick_params(axis="both",which="major",labelsize=textsize)
 plt.grid(True)
+plt.tight_layout()
 
 # plt.savefig("../results/Longitudinal_Dispersivities.png", dpi=300)
 plt.savefig("../results/Figure_01_CDF.pdf")
