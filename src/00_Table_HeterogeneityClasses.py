@@ -13,8 +13,8 @@ print("###########################################")
 for het_level in [1,2,3]:
     filter_het = (data['Heterogeneity class']==het_level)*np.isfinite(data['A_L'])
 
-    aL_het = np.compress(filter_het,data['A_L'])
-    weights_het = np.compress(filter_het,data['Weights'])
+    aL_het = data['A_L'][filter_het]
+    weights_het = data['Info level'][filter_het]/data['Reliability – A_L'][filter_het]
 
     mean_het = np.mean(aL_het)
     std_het = np.std(aL_het)

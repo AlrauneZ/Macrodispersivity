@@ -11,19 +11,20 @@ macrodispersivity from field tracer tests.
 ## Data source
 The data collection is based on the meta-studies (and references therein): 
 
+> Evidence based Estimation of Macrodispersivity for Groundwater Transport Applications
+> Alraune Zech, Sabine Attinger, Alberto Bellin, Vladimir Cvetkovic, Gedeon Dagan, Peter Dietrich, Aldo Fiori, and Georg Teutsch; 
+> Groundwater, under revision, 2022
+
+> A Critical Analysis of Transverse Dispersivity Field Data; 
+> Alraune Zech, Sabine Attinger, Alberto Bellin, Vladimir Cvetkovic, Gedeon Dagan, Peter Dietrich, Aldo Fiori, and Georg Teutsch; 
+> Groundwater, 57 (4), 632-639, 2019
+> https://doi.org/10.1111/gwat.12838
+
 > Is unique scaling of aquifer macrodispersivity supported by field data?; 
 > Alraune Zech, Sabine Attinger, Vladimir Cvetkovic, Gedeon Dagan, Peter Dietrich, Aldo Fiori, Yoram Rubin, and Georg Teutsch; 
 > Water Resources Research 51, 7662–7679; 2015
 > https://dx.doi.org/10.1002/2015WR017220
 
-> A Critical Analysis of Transverse Dispersivity Field Data; 
-> Alraune Zech, Sabine Attinger, Alberto Bellin, Vladimir Cvetkovic, Gedeon Dagan, Peter Dietrich, Aldo Fiori, and Georg Teutsch; 
-> Ground Water, 57 (4), 632-639, 2019
-> https://doi.org/10.1111/gwat.12838
-
-> Evidence based Estimation of Macrodispersivity for Groundwater Transport Applications
-> Alraune Zech, Sabine Attinger, Alberto Bellin, Vladimir Cvetkovic, Gedeon Dagan, Peter Dietrich, Aldo Fiori, and Georg Teutsch; 
-> Ground Water, submitted, 2022
 
 ## Structure
 
@@ -37,6 +38,8 @@ The project is organized as follows:
   + `01_plot_AL.py` - visualize longitudinal macrodispersivity data (Fig 4, Zech et al., 2015)
   + `02_plot_AT_AV.py` - visualize transverse dispersivity data (Fig 1b, Zech et al., 2019)
   + `03_plot_AL_CDFs.py` - visualize cumulative density functions of dispersivity for heterogeneity classes (Fig 1, Zech et al., 2022) 
+  + `04_plot_CapeCod.py` - visualize illustration example for an instantaneous injection in a low heterogeneous aquifer with comparison to observations from the Cape Cod experiment. (Fig 3, Zech et al., 2022) 
+  + `05_plot_AL-preasymptotic.py` - visualize evolution of pre-asymptotic longitudinal macrodistispersivity as function of travel distance L relative to integral scales (Fig 4, Zech et al., 2022) 
 
 ## Python environment
 
@@ -47,7 +50,6 @@ You can install them with `pip` (potentially in a virtual environment):
 ```bash
 pip install -r requirements.txt
 ```
-
 
 ## Contact
 

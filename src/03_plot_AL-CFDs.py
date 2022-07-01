@@ -3,14 +3,15 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
-from scipy.special import erfc,erf
+from scipy.special import erf
 
 ### Read in data from Excel file
 xl = pd.ExcelFile('../data/Dispersivity_GeoStats.xlsx')
 data = pd.read_excel(xl,skiprows = [1])
+weights = data['Info level']/data['Reliability – A_L']
 
+### cumulative density function for log-normal distribution
 def cdf(alpha_range,log_mean,log_var):
-    # cdf = 1-0.5*erfc((np.log(alpha_range)-log_mean)/np.sqrt(2*log_var))
     cdf = 0.5*(1+erf((np.log(alpha_range)-log_mean)/np.sqrt(2*log_var)))
     return cdf
 
@@ -18,18 +19,17 @@ def cdf(alpha_range,log_mean,log_var):
 textsize = 8
 cc = ['C1','C2','C4']
 plt.close('all')
-plt.rc('text', usetex=True)
 
 plt.figure(1,figsize=[3.75,2.7])
 for ii,het_level in enumerate([1,2,3]):
     filter_het = (data['Heterogeneity class']==het_level)*np.isfinite(data['A_L'])
-    aL_het = np.compress(filter_het,data['A_L'])
+    aL_het = data['A_L'][filter_het]
     plt.plot(np.sort(aL_het),np.linspace(0,1,len(aL_het)+2)[1:-1],'o',ls='',ms=5,c=cc[ii],label='Class {}  data'.format(het_level))
 
 for ii,het_level in enumerate([1,2,3]):
     filter_het = (data['Heterogeneity class']==het_level)*np.isfinite(data['A_L'])
-    aL_het = np.compress(filter_het,data['A_L'])
-    weights_het = np.compress(filter_het,data['Weights'])
+    aL_het = data['A_L'][filter_het]
+    weights_het = weights[filter_het]
 
     meanw_het = np.average(aL_het,weights=weights_het)
     std_het = np.std(aL_het)
