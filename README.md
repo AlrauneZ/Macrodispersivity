@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/329326997.svg)](https://zenodo.org/badge/latestdoi/329326997)
+
 # Overview
 
 This project aims to provide visualizations of reliable values of 
