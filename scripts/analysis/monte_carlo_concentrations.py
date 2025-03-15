@@ -2,36 +2,35 @@ import numpy as np
 from scipy.special import erf
 from scipy.stats import lognorm
 
-def cdf(x,log_mean,log_var):
-    """
-    Cumulative density function for log-normal distribution.
+def mass_monte_carlo_cape_cod(data_cape_cod,
+                              settings_cape_cod,
+                              x = np.arange(0,300,1), #m
+                              **kwargs,
+                              ):
 
-    Input
-    -----
-    x : float or np.array of floats
-        argument values
-    log_mean: 
-        log-mean value
-    log_var: 
-        log-varience value
-
-    Output
-    ------
-    cdf: float or np.array of floats
-        function values for arguments    
-    """
+    for index, (ti, data_ti) in enumerate(data_cape_cod.items()):
     
-    cdf = 0.5*(1+erf((np.log(x)-log_mean)/np.sqrt(2*log_var)))
-    return cdf
+        m_median, m_90p, m_10p = monte_carlo_alpha(x,ti,**settings_cape_cod)
+        data_ti['m_median'] = m_median
+        data_ti['m_90p'] = m_90p
+        data_ti['m_10p'] = m_10p
+        data_ti['x'] = x
+            
+        mcum_median, mcum_90p, mcum_10p = monte_carlo_alpha(x,ti,cumulative = True,**settings_cape_cod)
+        data_ti['mcum_median'] = mcum_median
+        data_ti['mcum_90p'] = mcum_90p
+        data_ti['mcum_10p'] = mcum_10p
 
-def MonteCarloAlpha(x,
-                    t,
-                    v,
-                    alphaL_mean, 
-                    alphaL_std,
-                    cumulative = False,
-                    **kwargs,
-                    ):
+    return data_cape_cod
+
+def monte_carlo_alpha(x, #m
+                      t, #d
+                      v =1, #m/d
+                      alphaL_mean = 1., #m 
+                      alphaL_std = 1, #m
+                      cumulative = False,
+                      **kwargs,
+                      ):
 
     """
     ### Monte Carlo Procedure to create mass distributions for random values 
