@@ -14,7 +14,7 @@ from scripts.analysis.statistics import macrodispersivity_statistics
 from scripts.analysis.monte_carlo_concentrations import mass_monte_carlo_cape_cod
 from scripts.visualize.plot_concentrations import plot_cape_cod_example
 
-from scripts.analysis.preassymptotic_alphaL import sets_preasymptotic_alphaL
+from scripts.analysis.preasymptotic_alphaL import sets_preasymptotic_alphaL
 from scripts.visualize.plot_dispersivity_preasymptotic import plot_alphaL_preasymptotic
 ###############################################################################
 ### Read in data from Excel file
