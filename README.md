@@ -1,62 +1,40 @@
-[![DOI](https://zenodo.org/badge/390033580.svg)](https://zenodo.org/badge/latestdoi/390033580)
+## Badges
 
-# Overview
+(Customize these badges with your own links, and check https://shields.io/ or https://badgen.net/ to see which other badges are available.)
 
-This project aims to provide visualizations of reliable values of 
-macrodispersivity from field tracer tests.
+| fair-software.eu recommendations | |
+| :-- | :--  |
+| (1/5) code repository              | [![github repo badge](https://img.shields.io/badge/github-repo-000.svg?logo=github&labelColor=gray&color=blue)](https://github.com/AlrauneZ/macrodispersivity) |
+| (2/5) license                      | [![github license badge](https://img.shields.io/github/license/AlrauneZ/macrodispersivity)](https://github.com/AlrauneZ/macrodispersivity) |
+| (3/5) community registry           | [![RSD](https://img.shields.io/badge/rsd-macrodispersivity-00a3e3.svg)](https://www.research-software.nl/software/macrodispersivity) [![workflow pypi badge](https://img.shields.io/pypi/v/macrodispersivity.svg?colorB=blue)](https://pypi.python.org/project/macrodispersivity/) |
+| (4/5) citation                     | [![DOI](https://zenodo.org/badge/DOI/<replace-with-created-DOI>.svg)](https://doi.org/<replace-with-created-DOI>)|
+| (5/5) checklist                    | [![workflow cii badge](https://bestpractices.coreinfrastructure.org/projects/<replace-with-created-project-identifier>/badge)](https://bestpractices.coreinfrastructure.org/projects/<replace-with-created-project-identifier>) |
+| howfairis                          | [![fair-software badge](https://img.shields.io/badge/fair--software.eu-%E2%97%8F%20%20%E2%97%8F%20%20%E2%97%8F%20%20%E2%97%8F%20%20%E2%97%8B-yellow)](https://fair-software.eu) |
+| **Other best practices**           | &nbsp; |
+| Documentation                      | [![Documentation Status](https://readthedocs.org/projects/macrodispersivity/badge/?version=latest)](https://macrodispersivity.readthedocs.io/en/latest/?badge=latest) || **GitHub Actions**                 | &nbsp; |
+| Build                              | [![build](https://github.com/AlrauneZ/macrodispersivity/actions/workflows/build.yml/badge.svg)](https://github.com/AlrauneZ/macrodispersivity/actions/workflows/build.yml) |
+| Citation data consistency          | [![cffconvert](https://github.com/AlrauneZ/macrodispersivity/actions/workflows/cffconvert.yml/badge.svg)](https://github.com/AlrauneZ/macrodispersivity/actions/workflows/cffconvert.yml) || Link checker              | [![link-check](https://github.com/AlrauneZ/macrodispersivity/actions/workflows/link-check.yml/badge.svg)](https://github.com/AlrauneZ/macrodispersivity/actions/workflows/link-check.yml) |## How to use macrodispersivity
 
-## Target Parameters
- - longitudinal macrodispersivity
- - transverse horizontal dispersivity
- - transverse vertical dispersivity
+Macrodispersivity
 
-## Data source
-The data collection is based on the meta-studies (and references therein): 
+The project setup is documented in [project_setup.md](project_setup.md). Feel free to remove this document (and/or the link to this document) if you don't need it.
 
-> Evidence based Estimation of Macrodispersivity for Groundwater Transport Applications
-> Alraune Zech, Sabine Attinger, Alberto Bellin, Vladimir Cvetkovic, Gedeon Dagan, Peter Dietrich, Aldo Fiori, and Georg Teutsch; 
-> Groundwater, under revision, 2022
+## Installation
 
-> A Critical Analysis of Transverse Dispersivity Field Data; 
-> Alraune Zech, Sabine Attinger, Alberto Bellin, Vladimir Cvetkovic, Gedeon Dagan, Peter Dietrich, Aldo Fiori, and Georg Teutsch; 
-> Groundwater, 57 (4), 632-639, 2019
-> https://doi.org/10.1111/gwat.12838
+To install macrodispersivity from GitHub repository, do:
 
-> Is unique scaling of aquifer macrodispersivity supported by field data?; 
-> Alraune Zech, Sabine Attinger, Vladimir Cvetkovic, Gedeon Dagan, Peter Dietrich, Aldo Fiori, Yoram Rubin, and Georg Teutsch; 
-> Water Resources Research 51, 7662–7679; 2015
-> https://dx.doi.org/10.1002/2015WR017220
-
-
-## Structure
-
-The project is organized as follows:
-
-- `README.md` - description of the project
-- `results/` - folder with plots
-- `data/` - folder containing table with field data
-- `src/` - folder containing the Python scripts of the project:
-  + `00_Table_HeterogeneityClasses.py` - load macrodispersivity data from table and identify averages for heterogeneity classes (Tab 1, Zech et al., 2022)
-  + `01_plot_AL.py` - visualize longitudinal macrodispersivity data (Fig 4, Zech et al., 2015)
-  + `02_plot_AT_AV.py` - visualize transverse dispersivity data (Fig 1b, Zech et al., 2019)
-  + `03_plot_AL_CDFs.py` - visualize cumulative density functions of dispersivity for heterogeneity classes (Fig 1, Zech et al., 2022) 
-  + `04_plot_CapeCod.py` - visualize illustration example for an instantaneous injection in a low heterogeneous aquifer with comparison to observations from the Cape Cod experiment. (Fig 3, Zech et al., 2022) 
-  + `05_plot_AL-preasymptotic.py` - visualize evolution of pre-asymptotic longitudinal macrodistispersivity as function of travel distance L relative to integral scales (Fig 4, Zech et al., 2022) 
-
-## Python environment
-
-To make the example reproducible, we provide the following files:
-- `requirements.txt` - requirements for [pip](https://pip.pypa.io/en/stable/user_guide/#requirements-files) to install all needed packages
-
-You can install them with `pip` (potentially in a virtual environment):
-```bash
-pip install -r requirements.txt
+```console
+git clone git@github.com:AlrauneZ/macrodispersivity.git
+cd macrodispersivity
+python -m pip install .
 ```
 
-## Contact
+## Documentation
 
-You can contact us via <a.zech@uu.nl>.
+Include a link to your project's full documentation here.
 
-## License
 
-MIT © 2022
+
+## Credits
+
+This package was created with [Copier](https://github.com/copier-org/copier) and the [NLeSC/python-template](https://github.com/NLeSC/python-template).
