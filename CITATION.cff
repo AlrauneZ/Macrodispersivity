@@ -1,0 +1,17 @@
+# YAML 1.2
+---
+cff-version: "1.2.0"
+title: "macrodispersivity"
+authors:
+  - family-names: Zech
+    given-names: Alraune
+    orcid: "https://orcid.org/0000-0002-8783-6198"
+date-released: 2025-03-18
+version: "0.1.0"
+doi: 10.5281/zenodo.6839670
+repository-code: "https://github.com/AlrauneZ/macrodispersivity"
+keywords:
+  - "subsurface transport"
+  - " dispersion"
+  - " macrodispersivity"
+message: "If you use this software, please cite it using these metadata."

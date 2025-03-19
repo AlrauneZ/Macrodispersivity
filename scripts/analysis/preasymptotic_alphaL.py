@@ -1,19 +1,18 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Sun Mar 16 21:47:23 2025
+"""Created on Sun Mar 16 21:47:23 2025
 
 @author: alraune
 """
 
 import numpy as np
 
+
 def sets_preasymptotic_alphaL(sigmaY2s = [1],
                              Ihs = [1],
                              ees = [1],
-                             x = np.arange(0,10.1,0.1),                             
+                             x = np.arange(0,10.1,0.1),
                             ):
-    
+
     alpha_sets = dict()
     i = 0
     for sigmaY2 in sigmaY2s:
@@ -31,10 +30,10 @@ def sets_preasymptotic_alphaL(sigmaY2s = [1],
     return alpha_sets
 
 def preasymptotic_alphaL(x,sigmaY2,Ih,ee=1):
-    
+
     be = anisotropy_factor(ee)
-    alphaL_preasymp =  sigmaY2 * Ih * (1. - np.exp(-x/Ih * be))  
-    
+    alphaL_preasymp =  sigmaY2 * Ih * (1. - np.exp(-x/Ih * be))
+
     return alphaL_preasymp
 
 def anisotropy_factor(ee):
@@ -54,8 +53,7 @@ def anisotropy_factor(ee):
     return bee
 
 def preasymptotic_alphaL_FirstOrder(x,sigma,ell):
-    """
-    First order approximation of preasymptotic alpha_L as used in paper
+    """First order approximation of preasymptotic alpha_L as used in paper
     Zech et al., 2015 (eventually very similar to other function, but 
                        does not account for anisotropy)
     """
@@ -67,8 +65,7 @@ def preasymptotic_alphaL_FirstOrder(x,sigma,ell):
     return alpha
 
 def log_uniform(x_range,size, N=10000):
-
-    """ Draw samples from a uniform distribution at logspace - base 10
+    """Draw samples from a uniform distribution at logspace - base 10
 
     Definition
     ----------
@@ -90,16 +87,16 @@ def log_uniform(x_range,size, N=10000):
     ------
     out : (ndarray)                 : Drawn samples, with shape size
      
-    """ 
+    """
     X_lin=np.random.randint(1,N,size)
     X_log=np.logspace(np.log10(x_range[0]),np.log10(x_range[1]),num=N)
     out=np.zeros(size)
-    
-    for i in range(0,size[0]):      
-        for j in range(0,size[1]):
+
+    for i in range(size[0]):
+        for j in range(size[1]):
             out[i,j]=X_log[X_lin[i,j]]
-    
-    return out     
+
+    return out
 
 def generate_random_preasymptotic_alpha(n_aquifers = 50,
                                n_locations = 5,
@@ -109,8 +106,7 @@ def generate_random_preasymptotic_alpha(n_aquifers = 50,
                                first_order = True,
                                seed = 20250319,
                               ):
-    """
-    Generating preasymptic values of longitudinal macrodispersivities aL as function of plume travel distance.
+    """Generating preasymptic values of longitudinal macrodispersivities aL as function of plume travel distance.
     Macrodispersivities are calculated from statistical parameters of hydraulic conductivity following first order theory (Daga, 1989).
     
     Random values of aquifer statistics (log-conductivity variance and correlation length) are randomly generated for 
@@ -141,7 +137,7 @@ def generate_random_preasymptotic_alpha(n_aquifers = 50,
     """
     np.random.seed(seed)
     x_random=np.sort(log_uniform(x_range,[n_aquifers,n_locations]),axis=1) # generating locations via uniform sampling, but at log-scale
-    sigma_random=np.random.uniform(sigma_range[0],sigma_range[1],n_aquifers) # generating random log-K variance 
+    sigma_random=np.random.uniform(sigma_range[0],sigma_range[1],n_aquifers) # generating random log-K variance
     ell_random=np.random.uniform(ell_range[0],ell_range[1],n_aquifers) # generating random correlation length
 
     alpha_random=np.zeros((n_aquifers,n_locations))
@@ -160,7 +156,6 @@ def random_selection(x_random,alpha_random):
     alpha_mid = np.sqrt(alpha_random[i_alpha_min,-1]*alpha_random[i_alpha_max,-1])
     i_alpha_mid = np.argmin(np.abs(alpha_random[:,-1]-alpha_mid))
     range_select = [i_alpha_min,i_alpha_mid,i_alpha_max]
-    #return [i_alpha_min,i_alpha_mid,i_alpha_max]    
+    #return [i_alpha_min,i_alpha_mid,i_alpha_max]
 
     return x_random[range_select,:],alpha_random[range_select,:]
-    
