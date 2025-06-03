@@ -22,7 +22,7 @@ classifiers = [
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
 ]
-dependencies = ["numpy","matplotlib","scipy","panda","jupyter-notebook"]
+dependencies = ["numpy","matplotlib","scipy","panda","notebook"]
 description = "Macrodispersivity"
 keywords = ["subsurface transport"," dispersion"," macrodispersivity"]
 license = {file = "LICENSE"}
@@ -68,7 +68,7 @@ testpaths = ["tests"]
 
 [tool.coverage.run]
 branch = true
-source = ["src/macrodispersivity"]
+source = ["macrodispersivity"]
 command_line = "-m pytest"
 
 [tool.tox]
@@ -126,7 +126,7 @@ no-lines-before = ["future","standard-library","third-party","first-party","loca
 current_version = "0.1.0"
 
 [[tool.bumpversion.files]]
-filename = "src/macrodispersivity/__init__.py"
+filename = "macrodispersivity/__init__.py"
 
 [[tool.bumpversion.files]]
 filename = "pyproject.toml"
