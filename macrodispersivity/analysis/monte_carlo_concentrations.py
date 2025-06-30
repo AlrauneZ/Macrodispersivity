@@ -8,6 +8,26 @@ def mass_monte_carlo_cape_cod(data_cape_cod,
                               x = np.arange(0,300,1), #m
                               **kwargs,
                               ):
+    """### Monte Carlo Procedure to create mass distributions for random values
+    of dispersivity from log-normal distribution
+
+    Parameters
+    ----------
+    x : TYPE
+        DESCRIPTION.
+    t : TYPE
+        DESCRIPTION.
+    U : TYPE
+        DESCRIPTION.
+    alphaL : TYPE
+        DESCRIPTION.
+
+    Returns:
+    -------
+    m : TYPE
+        DESCRIPTION.
+
+    """
 
     for index, (ti, data_ti) in enumerate(data_cape_cod.items()):
 

@@ -8,6 +8,34 @@ import numpy as np
 
 
 def data_per_heterogeneity_class(data):
+    
+    """Resort macrodispersivity for heterogeneity classes
+    
+    Takes the macrodispersivity data from the table stored in data
+    and transform it into a dictionary sorting it by heterogeneity level:
+        - 1 = low heterogeneity
+        - 2 = moderate heterogeneity
+        - 3 = high heterogeneity
+        
+    Values also come with a weight that represents level of information and reliability,
+    for reference check Zech et al. 2022        
+    
+    Input
+    -----    
+    data: pd.dataframe
+        table with macrodispersivity data
+        
+    Output
+    ------
+    data_het_classes: dictionary
+        two level dictionary with:
+            - keys representing levels of aquifer heterogeneity: "1", "2", "3"; 
+            - each value is a dictionary containing keys:
+                - "aL_het" contains a np.array with macrodispersivity values (in m)
+                - "weights_het" contains the weight given to the values with regard to 
+                        level of information and reliability 
+    """
+    
     data_het_classes = dict()
 
     for het_level in [1,2,3]:

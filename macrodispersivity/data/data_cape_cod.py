@@ -6,7 +6,7 @@
 import numpy as np
 
 
-def data_cape_cod(file_name = "./data/Cape_Cod_day_{}.csv",
+def data_cape_cod(file_name = "../data/Cape_Cod_day_{}.csv",
                   times = [203,461], #d
                   ):
 

@@ -7,10 +7,11 @@ import sys
 import matplotlib.pyplot as plt
 import numpy as np
 
-sys.path.append("/home/alraune/GitHub/AlrauneZ/Macrodispersivity/")
+import sys
+sys.path.append('../macrodispersivity')
 
-from scripts.analysis.statistics import cdf
-from scripts.analysis.statistics import macrodispersivity_statistics
+from analysis.statistics import cdf
+from analysis.statistics import macrodispersivity_statistics
 
 
 def plot_alphaL_cfd(data_het_classes,
