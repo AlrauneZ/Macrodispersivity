@@ -4,16 +4,19 @@
 """
 
 import pandas as pd
-from scripts.data.data_dispersivity_table import ratios_data_alphaLTV
-from scripts.data.data_dispersivity_table import select_data_alphaL
-from scripts.data.data_dispersivity_table import select_data_alphaTV
-from scripts.visualize.plot_dispersivity_data import plot_alphaL_vs_scale
-from scripts.visualize.plot_dispersivity_data import plot_alphaTV_vs_scale
-from scripts.visualize.plot_dispersivity_data import plot_ratios_alpha_vs_scale
+import sys
+sys.path.append('../macrodispersivity')
+
+from data.data_dispersivity_table import ratios_data_alphaLTV
+from data.data_dispersivity_table import select_data_alphaL
+from data.data_dispersivity_table import select_data_alphaTV
+from visualize.plot_dispersivity_data import plot_alphaL_vs_scale
+from visualize.plot_dispersivity_data import plot_alphaTV_vs_scale
+from visualize.plot_dispersivity_data import plot_ratios_alpha_vs_scale
 
 ###############################################################################
 ### Read in data from Excel file
-xl = pd.ExcelFile("./data/Dispersivity_GeoStats.xlsx")
+xl = pd.ExcelFile("../data/Dispersivity_GeoStats.xlsx")
 data = pd.read_excel(xl,skiprows = [1])
 
 data_alphaL = select_data_alphaL(data)
@@ -32,10 +35,12 @@ plot_alphaL_vs_scale(data_alphaL,
 data_alpha_TV = select_data_alphaTV(data)
 
 plot_alphaTV_vs_scale(data_alpha_TV,
-                      save_fig = "./results/Zech-et-al-2019_Fig2_Transverse_dispersivities.pdf")
+                      # save_fig = "Zech-et-al-2019_Fig2_Transverse_dispersivities.pdf",
+                      )
 
 ratios_alphaLTV = ratios_data_alphaLTV(data)
 
 plot_ratios_alpha_vs_scale(ratios_alphaLTV,
-                           save_fig = "./results/Zech-et-al-2019_Fig3_Ratios_dispersivities.pdf")
+                           # save_fig = "Zech-et-al-2019_Fig3_Ratios_dispersivities.pdf",
+                           )
 
