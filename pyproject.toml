@@ -8,9 +8,13 @@ requires = ["setuptools>=64.0.0", "setuptools-scm", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
+name = "macrodispersivity"
+version = "0.1.0"
 authors = [
     { name = "Alraune Zech", email = "a.zech@uu.nl" }
 ]
+dependencies = ["numpy","matplotlib","scipy","panda"]
+requires-python = ">=3.8"
 classifiers = [
     "Development Status :: 2 - Pre-Alpha",
     "Intended Audience :: Developers",
@@ -22,14 +26,11 @@ classifiers = [
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
 ]
-dependencies = ["numpy","matplotlib","scipy","panda","notebook"]
 description = "Macrodispersivity"
 keywords = ["subsurface transport"," dispersion"," macrodispersivity"]
-license = {file = "LICENSE"}
-name = "macrodispersivity"
+license = "MIT License"
+license-files = "LICENSE"
 readme = {file = "README.md", content-type = "text/markdown"}
-requires-python = ">=3.8"
-version = "0.1.0"
 
 [project.optional-dependencies]
 dev = [
@@ -63,7 +64,7 @@ Issues = "https://github.com/AlrauneZ/macrodispersivity/issues"
 ReadTheDocs = "https://macrodispersivity.readthedocs.io"
 
 [tool.pytest.ini_options]
-testpaths = ["tests"]
+testpaths = ["macrodispersivity/tests"]
 
 
 [tool.coverage.run]
