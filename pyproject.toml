@@ -28,7 +28,7 @@ classifiers = [
 ]
 description = "Macrodispersivity"
 keywords = ["subsurface transport"," dispersion"," macrodispersivity"]
-license = "MIT License"
+license = "MIT"
 license-files = "LICENSE"
 readme = {file = "README.md", content-type = "text/markdown"}
 
